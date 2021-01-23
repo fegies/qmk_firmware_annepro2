@@ -20,7 +20,7 @@ enum anne_pro_layers {
  * I have chosen to omit Layers 5 and 6.
  *
  * If you would like the board to pretend to be a qwerty board, you have to swap KC_Z and KC_Y
- * in the base mapping.
+ * in the base mapping. (Also you will have to redo the mappings of layer 3/4 because the german boards are weird a.f.)
  */
 
 /*
@@ -28,19 +28,19 @@ enum anne_pro_layers {
 * ,-----------------------------------------------------------------------------------------.
 * | esc |  1  |  2  |  3  |  4  |  5  |  6  |  7  |  8  |  9  |  0  |  -  |  =  |    Bksp   |
 * |-----------------------------------------------------------------------------------------+
-* | Tab    |  x  |  v  |  l  |  c  |  w  |  k  |  h  |  g  |  f  |  q  |  ß  |  ´  |   \    |
+* | NEO4   |  x  |  v  |  l  |  c  |  w  |  k  |  h  |  g  |  f  |  q  |  ß  |  ´  |   \    |
 * |-----------------------------------------------------------------------------------------+
-* | Caps    |  u  |  i  |  a  |  e  |  o  |  s  |  n  |  r  |  t  |  d  |  y  |    Enter    |
+* | NEO3    |  u  |  i  |  a  |  e  |  o  |  s  |  n  |  r  |  t  |  d  |  y  |    Enter    |
 * |-----------------------------------------------------------------------------------------+
 * | Shift      |  ü  |  ö  |  ä  |  p  |  z  |  b  |  m  |  ,  |  .  |  j  |    Shift       |
 * |-----------------------------------------------------------------------------------------+
-* | Ctrl  |  L1   |  Alt  |               space             |  Alt  |  FN1  |  FN2  | Ctrl  |
+* | Ctrl  |  L1   |  Alt  |               space             |  NEO4  |  FN1  |  FN2  | Ctrl  |
 * \-----------------------------------------------------------------------------------------/
 * Layer TAP in _BASE_LAYER
 * ,-----------------------------------------------------------------------------------------.
 * |     |     |     |     |     |     |     |     |     |     |     |     |     |           |
 * |-----------------------------------------------------------------------------------------+
-* |        |     |     |     |     |     |     |     |     |     |     |     |     |        |
+* |  TAB   |     |     |     |     |     |     |     |     |     |     |     |     |        |
 * |-----------------------------------------------------------------------------------------+
 * |         |     |     |     |     |     |     |     |     |     |     |     |             |
 * |-----------------------------------------------------------------------------------------+
@@ -52,7 +52,7 @@ enum anne_pro_layers {
  const uint16_t keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [_BASE_LAYER] = KEYMAP( /* Base */
     KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS, KC_EQL, KC_BSPC,
-    KC_TAB, KC_X, KC_V, KC_L, KC_C, KC_W, KC_K, KC_H, KC_G, KC_F, KC_Q, KC_MINS, KC_EQL, KC_NUHS,
+    LT(_NEO_LAYER_4_LAYER, KC_TAB), KC_X, KC_V, KC_L, KC_C, KC_W, KC_K, KC_H, KC_G, KC_F, KC_Q, KC_MINS, KC_EQL, KC_NUHS,
     MO(_NEO_LAYER_3_LAYER), KC_U, KC_I, KC_A, KC_E, KC_O, KC_S, KC_N, KC_R, KC_T, KC_D, KC_Z, KC_ENT,
     KC_LSFT, KC_LBRC, KC_SCLN, KC_QUOT, KC_P, KC_Y, KC_B, KC_M, KC_COMM, KC_DOT, KC_J, RSFT_T(KC_UP),
     KC_LCTL, KC_LGUI, KC_LALT, KC_SPC, MO(_NEO_LAYER_4_LAYER), LT(_FN1_LAYER,KC_LEFT), LT(_FN2_LAYER,KC_DOWN), RCTL_T(KC_RGHT)
@@ -143,7 +143,7 @@ enum anne_pro_layers {
   * |-----------------------------------------------------------------------------------------+
   * |            | ESC | TAB | INS | ENT |     |  :  |  1  |  2  |  3  |  ;  |                |
   * |-----------------------------------------------------------------------------------------+
-  * |       |       |       |                                 |       |       |       |       |
+  * |       |       |       |                 0               |       |       |       |       |
   * \-----------------------------------------------------------------------------------------/
   *
   */
@@ -152,7 +152,7 @@ enum anne_pro_layers {
     KC_TRNS, KC_PGUP, KC_BSPC, KC_UP, KC_DEL, KC_PGDN, KC_TRNS, KC_7, KC_8, KC_9, KC_RBRC, KC_SLSH, KC_TRNS, KC_TRNS,
     KC_TRNS, KC_HOME, KC_LEFT, KC_DOWN, KC_RIGHT, KC_END, KC_TRNS, KC_4, KC_5, KC_6, KC_COMM, KC_DOT, KC_TRNS,
     KC_TRNS, KC_ESC, KC_TAB, KC_INS, KC_ENT, KC_TRNS, S(KC_DOT), KC_1, KC_2, KC_3, S(KC_COMM), KC_TRNS,
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+    KC_TRNS, KC_TRNS, KC_TRNS, KC_0, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
  ),
 };
 const uint16_t keymaps_size = sizeof(keymaps);
