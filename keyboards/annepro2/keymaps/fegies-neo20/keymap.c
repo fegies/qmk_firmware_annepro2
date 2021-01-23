@@ -12,13 +12,13 @@ enum anne_pro_layers {
 
 /**
  * The Purpose of this keymap is to be able to use the neo 2.0 Layout on computers that might not
- * have software support. 
- * 
+ * have software support.
+ *
  * For this Purpose, you should set your computer to use a qwertz keyboard.
- * 
+ *
  * Because we are limited to the keys that are physically present on such a board (and media keys)
  * I have chosen to omit Layers 5 and 6.
- * 
+ *
  * If you would like the board to pretend to be a qwerty board, you have to swap KC_Z and KC_Y
  * in the base mapping.
  */
@@ -105,7 +105,7 @@ enum anne_pro_layers {
   * Now we get to the really interesting bits:
   * The Braces and Brackets Layer beloved by Programmers.
   * Keys not Present on a normal ISO-Qwertz board were omitted.
-  * 
+  *
   * Layer _NEO_LAYER_3_LAYER
   * ,-----------------------------------------------------------------------------------------.
   * |     |     |     |     |     |     |     |     |     |     |     |     |     |           |
@@ -130,26 +130,28 @@ enum anne_pro_layers {
  /*
   * Again we only implement the keys that are present on a normal keyboard.
   * Who needs those greek letters anyway, right?
-  * 
+  *
+  * Additionally, I have added media keys on fn 1-6 on layer 4 instead of some estoteric keys
+  *
   * Layer _NEO_LAYER_4_LAYER
   * ,-----------------------------------------------------------------------------------------.
-  * |     |     |     |     |     |     |     |     | tab |  /  |  *  |  -  |     |           |
+  * |     | MUTE|V-DWN| V-UP|PAUSE|PREV | NEXT|     | tab |  /  |  *  |  -  |     |           |
   * |-----------------------------------------------------------------------------------------+
   * |        | PGUP| BKSP| UP  | DEL |PGDWN|     |  7  |  8  |  9  |  + |  -   |     |        |
   * |-----------------------------------------------------------------------------------------+
   * |         |HOME | LFT | DWN |RGHT | END  |    |  4  |  5  |  6  |  ,  |  .  |             |
   * |-----------------------------------------------------------------------------------------+
-  * |            | ESC | TAB |     | ENT |     |  :  |  1  |  2  |  3  |  ;  |                |
+  * |            | ESC | TAB | INS | ENT |     |  :  |  1  |  2  |  3  |  ;  |                |
   * |-----------------------------------------------------------------------------------------+
   * |       |       |       |                                 |       |       |       |       |
   * \-----------------------------------------------------------------------------------------/
   *
   */
  [_NEO_LAYER_4_LAYER] = KEYMAP( /* Base */
-    KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TAB, S(KC_7), S(KC_RBRC), KC_SLSH, KC_TRNS, KC_TRNS,
+    KC_TRNS, KC_AUDIO_MUTE, KC_AUDIO_VOL_DOWN, KC_AUDIO_VOL_UP, KC_MEDIA_PLAY_PAUSE, KC_MEDIA_PREV_TRACK, KC_MEDIA_NEXT_TRACK, KC_TRNS, KC_TAB, S(KC_7), S(KC_RBRC), KC_SLSH, KC_TRNS, KC_TRNS,
     KC_TRNS, KC_PGUP, KC_BSPC, KC_UP, KC_DEL, KC_PGDN, KC_TRNS, KC_7, KC_8, KC_9, KC_RBRC, KC_SLSH, KC_TRNS, KC_TRNS,
     KC_TRNS, KC_HOME, KC_LEFT, KC_DOWN, KC_RIGHT, KC_END, KC_TRNS, KC_4, KC_5, KC_6, KC_COMM, KC_DOT, KC_TRNS,
-    KC_TRNS, KC_ESC, KC_TAB, KC_TRNS, KC_ENT, KC_TRNS, S(KC_DOT), KC_1, KC_2, KC_3, S(KC_COMM), KC_TRNS,
+    KC_TRNS, KC_ESC, KC_TAB, KC_INS, KC_ENT, KC_TRNS, S(KC_DOT), KC_1, KC_2, KC_3, S(KC_COMM), KC_TRNS,
     KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
  ),
 };
