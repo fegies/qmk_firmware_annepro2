@@ -3,7 +3,8 @@ SRC = \
 	matrix.c \
 	hardfault_handler.c \
 	annepro2_ble.c \
-	qmk_ap2_led.c
+	qmk_ap2_led.c \
+	protocol.c
 
 ifeq ($(strip $(ANNEPRO2_EEPROM)), yes)
     OPT_DEFS += -DANNEPRO2_EEPROM
@@ -36,10 +37,14 @@ EXTRAKEY_ENABLE = yes
 KEY_LOCK_ENABLE = no
 
 # Other featues
-BOOTMAGIC_ENABLE = no
+BOOTMAGIC_ENABLE = yes
 CONSOLE_ENABLE = no
 COMMAND_ENABLE = yes
 RAW_ENABLE = yes
 MIDI_ENABLE = no
 VIRTSER_ENABLE = no
 COMBO_ENABLE = no
+
+# Custom led mcu wakeup delay
+ANNEPRO2_LED_MCU_WAKEUP_DELAY = 15
+OPT_DEFS += -DANNEPRO2_LED_MCU_WAKEUP_DELAY=$(ANNEPRO2_LED_MCU_WAKEUP_DELAY)
