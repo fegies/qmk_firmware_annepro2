@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include "annepro2.h"
 #include "qmk_ap2_led.h"
+#include "config.h"
 
 enum anne_pro_layers {
   _BASE_LAYER_NEO,
@@ -197,11 +198,34 @@ const uint16_t keymaps_size = sizeof(keymaps);
 
 
 void matrix_init_user(void) {
-
 }
 
 void matrix_scan_user(void) {
 }
+
+void keyboard_post_init_user(void)
+{
+    annepro2LedEnable();
+    annepro2LedSetProfile(12);
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case DF(_BASE_LAYER_QWERTY):
+            annepro2LedSetProfile(13);
+            break;
+        case DF(_BASE_LAYER_NEO):
+            annepro2LedSetProfile(12);
+            break;
+    }
+    return true;
+}
+
+// void suspend_power_down_user(void)
+// {
+//     if (AP2_LED_ENABLED)
+//         annepro2LedDisable();
+// }
 
 layer_state_t layer_state_set_user(layer_state_t layer) {
     return layer;
