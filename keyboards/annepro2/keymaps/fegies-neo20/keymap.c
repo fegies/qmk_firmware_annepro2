@@ -206,16 +206,16 @@ void matrix_scan_user(void) {
 void keyboard_post_init_user(void)
 {
     annepro2LedEnable();
-    annepro2LedSetProfile(12);
+    annepro2LedSetProfile(15);
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case DF(_BASE_LAYER_QWERTY):
-            annepro2LedSetProfile(13);
+            annepro2LedSetProfile(16);
             break;
         case DF(_BASE_LAYER_NEO):
-            annepro2LedSetProfile(12);
+            annepro2LedSetProfile(15);
             break;
     }
     return true;
