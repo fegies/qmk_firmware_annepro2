@@ -200,22 +200,31 @@ const uint16_t keymaps_size = sizeof(keymaps);
 void matrix_init_user(void) {
 }
 
+// static uint16_t keyboard_init_wait_iterations = 10000;
 void matrix_scan_user(void) {
+    // if (keyboard_init_wait_iterations > 0)
+    // {
+    //     if (--keyboard_init_wait_iterations == 0)
+    //     {
+    //         annepro2LedEnable();
+    //         annepro2LedSetProfile(15);
+    //     }
+    // }
 }
 
 void keyboard_post_init_user(void)
 {
     annepro2LedEnable();
-    annepro2LedSetProfile(15);
+    annepro2LedSetProfile(0);
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case DF(_BASE_LAYER_QWERTY):
-            annepro2LedSetProfile(16);
+            annepro2LedSetProfile(1);
             break;
         case DF(_BASE_LAYER_NEO):
-            annepro2LedSetProfile(15);
+            annepro2LedSetProfile(0);
             break;
     }
     return true;

@@ -57,7 +57,7 @@ void OVERRIDE keyboard_pre_init_kb(void) {
     sdWrite(&SD0, ledMcuWakeup, 11);
 
     // wait to receive response from wakeup
-    wait_ms(15);
+    wait_ms(30);
 
     protoInit(&proto, ledCommandCallback);
 
